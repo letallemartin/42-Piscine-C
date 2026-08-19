@@ -1,57 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*  rush00.c                                            :+:      :+:    :+:   */
+/*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*                                                  +#+  +:+       +#+        */
+/*   By: letalle <letalle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*                                                     #+#    #+#             */
-/*                                                    ###   ########.fr       */
+/*   Created: 2026/08/19 15:00:00 by letalle           #+#    #+#             */
+/*   Updated: 2026/08/19 15:00:00 by letalle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h> 
-void    ft_putchar(char c);
+#include <unistd.h>
 
-void    ft_putelem(int x, int y, int i, int j);
+void	ft_putchar(char c);
 
-void    rush(int x, int y)
+void	ft_putelem(int x, int y, int i, int j);
+
+void	rush(int x, int y)
 {
-    int     i; 
-    int     j;
-    i = 0; // 0 -> y 
+	int	i;
+	int	j;
 
-    if (x > 0 && y > 0)  
-    {
-        while (i < y) 
-        {
-            j = 0;
-            while (j < x) 
-            {
-                ft_putelem(x, y, i, j);
-                j++;
-            }
-            write(1, "\n", 1);
-            i++;
-        }
-    }
+	i = 0;
+	if (x > 0 && y > 0)
+	{
+		while (i < y)
+		{
+			j = 0;
+			while (j < x)
+			{
+				ft_putelem(x, y, i, j);
+				j++;
+			}
+			write(1, "\n", 1);
+			i++;
+		}
+	}
 }
 
-void    ft_putelem(int x, int y, int i, int j)
+void	ft_putelem(int x, int y, int i, int j)
 {
-    if (i == 0 && j == 0|| j == 0 && i == y - 1 || j == x - 1 && i == 0 || j == x - 1 && i == y - 1)
-    {
-        ft_putchar('0'); 
-    }
-    else if ((i == 0  || i == y - 1) && 0 < j < x - 1 )
-    {
-        ft_putchar('-');
-    }
-    else if ((j == 0  || j == x - 1) && 0 < i < y - 1 )
-    {
-        ft_putchar('|'); 
-    }
-    else
-    {
-        ft_putchar(' ');
-    }
+	if (i == 0 && j == 0 || j == 0
+		&& i == y - 1 || j == x - 1
+		&& i == 0 || j == x - 1 && i == y - 1)
+	{
+		ft_putchar('0');
+	}
+	else if ((i == 0 || i == y - 1) && 0 < j < x - 1)
+	{
+		ft_putchar('-');
+	}
+	else if ((j == 0 || j == x - 1) && 0 < i < y - 1)
+	{
+		ft_putchar('|');
+	}
+	else
+	{
+		ft_putchar(' ');
+	}
 }
