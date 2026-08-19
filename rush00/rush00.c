@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*  ft_rush00.c                                          :+:      :+:    :+:   */
+/*  rush00.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*                                                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h> 
-#include <stdio.h>
-#include "ft_putchar.c"
+void    ft_putchar(char c);
+
 void    ft_putelem(int x, int y, int i, int j);
 
 void    rush(int x, int y)
@@ -20,17 +20,17 @@ void    rush(int x, int y)
     int     j;
     i = 0; // 0 -> y 
 
-    if (x > 0 && y > 0) 
+    if (x > 0 && y > 0)  
     {
-        while (i < y)
+        while (i < y) 
         {
             j = 0;
-            while (j < x)
+            while (j < x) 
             {
                 ft_putelem(x, y, i, j);
                 j++;
             }
-            write(1,"\n",1);
+            write(1, "\n", 1);
             i++;
         }
     }
