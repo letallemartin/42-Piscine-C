@@ -12,9 +12,10 @@
 #include <unistd.h> 
 #include <stdio.h>
 #include "ft_putchar.c"
+void    ft_putelem(int x, int y, int i, int j);
+
 void    rush(int x, int y)
 {
-
     int     i; 
     int     j;
     i = 0; // 0 -> y 
@@ -26,29 +27,31 @@ void    rush(int x, int y)
             j = 0;
             while (j < x)
             {
-                if (i == 0 && j == 0|| j == 0 && i == y - 1 || j == x - 1 && i == 0 || j == x - 1 && i == y - 1)
-                {
-                    ft_putchar('0'); //if dans un coin -> ft_putchar('0')
-                }
-
-                else if ((i == 0  || i == y - 1) && 0 < j < x - 1 )
-                {
-                    ft_putchar('-'); //if bord haut ou ligne bas -> ft_putchar('-')
-                }
-
-                else if ((j == 0  || j == x - 1) && 0 < i < y - 1 )
-                {
-                    ft_putchar('|'); //if ligne bord droit ou bord gauche -> ft_putchar('|')
-                }
-
-                else
-                {
-                    ft_putchar(' '); // else if centre ft_putchar(' ')
-                }
+                ft_putelem(x, y, i, j);
                 j++;
             }
             write(1,"\n",1);
             i++;
         }
+    }
+}
+
+void    ft_putelem(int x, int y, int i, int j)
+{
+    if (i == 0 && j == 0|| j == 0 && i == y - 1 || j == x - 1 && i == 0 || j == x - 1 && i == y - 1)
+    {
+        ft_putchar('0'); 
+    }
+    else if ((i == 0  || i == y - 1) && 0 < j < x - 1 )
+    {
+        ft_putchar('-');
+    }
+    else if ((j == 0  || j == x - 1) && 0 < i < y - 1 )
+    {
+        ft_putchar('|'); 
+    }
+    else
+    {
+        ft_putchar(' ');
     }
 }
