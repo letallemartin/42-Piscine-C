@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: letalle <letalle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,6 +9,7 @@
 /*   Updated: 2026/08/19 15:00:00 by letalle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 int	ft_str_is_alpha(char *str)
 {
 	int	i;
@@ -16,8 +17,9 @@ int	ft_str_is_alpha(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] < 'A' || 'Z' < (str[i] && str[i] < 'a') || str[i] > 'z')
+		if (str[i] < 'A' || 'Z' < str[i] && str[i] < 'a' || str[i] > 'z')
 		{
+			printf("error");
 			return (0);
 		}
 		i++;
