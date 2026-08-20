@@ -9,7 +9,6 @@
 /*   Updated: 2026/08/19 15:00:00 by letalle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 int	ft_str_is_alpha(char *str)
 {
 	int	i;
@@ -19,7 +18,6 @@ int	ft_str_is_alpha(char *str)
 	{
 		if (str[i] < 'A' || 'Z' < str[i] && str[i] < 'a' || str[i] > 'z')
 		{
-			printf("error");
 			return (0);
 		}
 		i++;
@@ -27,9 +25,9 @@ int	ft_str_is_alpha(char *str)
 	return (1);
 }
 
-// int main(void)
-// {
-// 	char str[] = "Hello";
-// 	ft_str_is_alpha(str);
-// 	return 0;
-// }
+int main(void)
+{
+	char str[] = "Hello";
+	ft_str_is_alpha(str);
+	return 0;
+}
