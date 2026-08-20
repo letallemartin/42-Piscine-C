@@ -25,9 +25,9 @@ int	ft_str_is_alpha(char *str)
 	return (1);
 }
 
-int main(void)
-{
-	char str[] = "Hello";
-	ft_str_is_alpha(str);
-	return 0;
-}
+// int main(void)
+// {
+// 	char str[] = "Hello";
+// 	ft_str_is_alpha(str);
+// 	return 0;
+// }
