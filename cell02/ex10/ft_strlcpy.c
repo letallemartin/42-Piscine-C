@@ -11,25 +11,35 @@
 /* ************************************************************************** */
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int i;
+	int	i;
+
 	i = 0;
-	while (i < size && src[i] != '\0')
+	while (src[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (i + 1 < size)
+		{
+			dest[i] = src[i];
+		}
 		i++;
 	}
-	while (i < size)
+	if (size > 0)
 	{
-		dest[i] = '\0';
-		i++;
+		if (i < size)
+		{
+			dest[i] = '\0';
+		}
+		else if (i >= size)
+		{
+			dest[size - 1] = '\0';
+		}
 	}
 	return (i);
 }
 
-int main(void)
-{
-	char *dest[20];
-	char str[] = "moi je suis+moi que toi5moi";
-	ft_strlcpy(dest, str, 20);
-	return 0;
-}
+// int main(void)
+// {
+// 	char dest[20];
+// 	char str[] = "moi";
+// 	ft_strlcpy(dest, str, 80);
+// 	return 0;
+// }
