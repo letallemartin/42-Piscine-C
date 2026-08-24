@@ -9,33 +9,28 @@
 /*   Updated: 2026/08/19 15:00:00 by letalle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-int    ft_strlen(char *str);
+int	ft_strlen(char *str);
+
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	j;
-    unsigned int len;
-    
-    len = (unsigned int)ft_strlen(dest) + (unsigned int)ft_strlen(src);
+	unsigned int	len;
+
 	i = 0;
 	j = 0;
-    if (size <= ft_strlen(dest))
-    {
-        return (size + (unsigned int)ft_strlen(src));
-    }
-	while (dest[i] != '\0')
+	len = (unsigned int)ft_strlen(dest) + (unsigned int)ft_strlen(src);
+	if (size <= (unsigned int)ft_strlen(dest))
 	{
-        printf("%c", dest[i]);
-        printf("i = %d\n", i);
-        
+		return (size + (unsigned int)ft_strlen(src));
+	}
+	while (dest[i] != 0)
+	{
 		i++;
 	}
-	while (src[j] != '\0' && i < size - 1)
+	while (src[j] != 0 && i < size - 1)
 	{
 		dest[i] = src[j];
-        printf("%c", dest[i]);
-        printf("i = %d\n", i);
 		i++;
 		j++;
 	}
@@ -43,21 +38,21 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	return (len);
 }
 
-int    ft_strlen(char *str)
-{
-    int    i;
-    i = 0;  
-    while (str[i] != '\0')
-    {
-        i++;
-    }
-    return i;
-}
+// int    ft_strlen(char *str)
+// {
+//     int    i;
+//     i = 0;  
+//     while (str[i] != '\0')
+//     {
+//         i++;
+//     }
+//     return i;
+// }
 
-int main(void)
-{
-	char str1[] = "world";
-	char str2[20] = "hello";
-	printf("%d\n",ft_strlcat(str2, str1, 3));
-	return 0;
-}
+// int main(void)
+// {
+// 	char str1[] = "world";
+// 	char str2[20] = "hello";
+// 	printf("%d\n",ft_strlcat(str2, str1, 8));
+// 	return 0;
+// }
