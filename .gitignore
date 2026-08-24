@@ -2,5 +2,5 @@
 **/main.c
 # Executables
 **/*.exe
-
+**/*.out
 .history
