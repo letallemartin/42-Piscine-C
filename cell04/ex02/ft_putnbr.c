@@ -20,7 +20,7 @@ void	ft_putnbr(int nb)
 	n = nb;
 	a = ' ';
 	i = 1;
-	if (nb < 0)
+	if (n < 0)
 	{
 		n = -n;
 		write(1, "-", 1);
