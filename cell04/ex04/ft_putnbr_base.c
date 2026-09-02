@@ -34,12 +34,27 @@ int	check_base(char *base)
 	else {return (0);}
 }
 
+void	print_base(int nbr, int T)
+{
+	char	a;
+	long	n;
+
+	a = ' ';
+	n = nbr;
+	while (n / T > 0)
+	{
+		a = n % T + '0';
+		n = n / T;
+		write(1,&a, 1);
+	}
+
+}
+
 int	main(void)
 {
-	int x = 5;
+	int x = 10;
 	char str[] = "01";
-	int nb = check_base(str);
-	char a = nb + '0';
-	write(1, &a, 1);
+	int T = check_base(str);
+	print_base(x, T);
 	return (0);
 }
