@@ -34,27 +34,44 @@ int	check_base(char *base)
 	else {return (0);}
 }
 
-void	print_base(int nbr, int T)
+void	print_base(int nbr, int T, char *base)
 {
 	char	a;
 	long	n;
+	int	i;
 
 	a = ' ';
 	n = nbr;
-	while (n / T > 0)
+	i = 1;
+	if (n < 0)
 	{
-		a = n % T + '0';
-		n = n / T;
-		write(1,&a, 1);
+		n = -n;
+		write(1, "-", 1);
 	}
-
+	while (n / i >= T)
+	{i = i * T;}
+	while (i > 0)
+	{
+		a = n / i;
+		a = base[a];
+		write(1, &a, 1);
+		n = n % i;
+		i = i / T;
+	}
 }
 
 int	main(void)
 {
-	int x = 10;
-	char str[] = "01";
+	int x = 9;
+	char str[] = "CODE";
 	int T = check_base(str);
-	print_base(x, T);
+	print_base(x, T, str);
 	return (0);
 }
+
+// while (n >= T)
+// 	{
+// 		a = n % T + '0';
+// 		n = n / T;
+// 		write(1,&a, 1);
+// 	}
