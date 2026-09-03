@@ -14,31 +14,36 @@
 int	check_base(char *base)
 {
 	int	i;
-	int j;
+	int	j;
+
 	i = 0;
 	j = 0;
 	while (base[i] != '\0')
 	{
-		if ((base[i] < '0' || base[i] > '9') && (base[i] < 'a' || base[i] > 'z') && (base[i] < 'A' || base[i] > 'Z'))
-		{return (0);}
+		if ((base[i] < '0' || base[i] > '9')
+			&& (base[i] < 'a' || base[i] > 'z')
+			&& (base[i] < 'A' || base[i] > 'Z'))
+			return (0);
 		j = i + 1;
 		while (base[j] != '\0')
 		{
 			if (base[j] == base[i])
-			{return (0);}
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	if (i > 1){return (i);}
-	else {return (0);}
+	if (i > 1)
+		return (i);
+	else
+		return (0);
 }
 
 void	print_base(int nbr, int T, char *base)
 {
 	char	a;
 	long	n;
-	int	i;
+	int		i;
 
 	a = ' ';
 	n = nbr;
@@ -49,7 +54,9 @@ void	print_base(int nbr, int T, char *base)
 		write(1, "-", 1);
 	}
 	while (n / i >= T)
-	{i = i * T;}
+	{
+		i = i * T;
+	}
 	while (i > 0)
 	{
 		a = n / i;
@@ -60,14 +67,14 @@ void	print_base(int nbr, int T, char *base)
 	}
 }
 
-int	main(void)
-{
-	int x = 9;
-	char str[] = "CODE";
-	int T = check_base(str);
-	print_base(x, T, str);
-	return (0);
-}
+// int	main(void)
+// {
+// 	int x = 10;
+// 	char str[] = "01";
+// 	int T = check_base(str);
+// 	print_base(x, T, str);
+// 	return (0);
+// }
 
 // while (n >= T)
 // 	{
