@@ -1,48 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*  ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_print_comb2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*                                                  +#+  +:+       +#+        */
+/*   By: letalle <letalle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*                                                     #+#    #+#             */
-/*                                                    ###   ########.fr       */
+/*   Created: 2026/08/19 15:00:00 by letalle           #+#    #+#             */
+/*   Updated: 2026/08/19 15:00:00 by letalle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h> 
+#include <unistd.h>
 
-void ft_print_comb2(void)
+void	ft_print_comb2(void)
 {
-    int a;
-    int b;
-    char tab[5];
-    a = 0;
-    while (a < 99)
-    {
-        b = a + 1;
-        while (b < 100)
-        {
-            if (a < b)
-            {
-                tab[0] = (a/10) + '0';
-                tab[1] = (a % 10) + '0' ;
-                tab[2] = ' ';
-                tab[3] = (b/10) + '0';
-                tab[4] = (b % 10) + '0' ;
-                write(STDOUT_FILENO, &tab , 5);
-                if (a != 98)
-                {
-                    write(STDOUT_FILENO, ", " , 2);
-                }
-            }
-            b++;
-        }
-        a++;
-    }     
+	int		a;
+	int		b;
+	char	tab[5];
+
+	a = 0;
+	while (a < 99)
+	{
+		b = a + 1;
+		while (b < 100)
+		{
+			if (a < b)
+			{
+				tab[0] = (a / 10) + '0';
+				tab[1] = (a % 10) + '0' ;
+				tab[2] = ' ';
+				tab[3] = (b / 10) + '0';
+				tab[4] = (b % 10) + '0' ;
+				write(STDOUT_FILENO, &tab, 5);
+				if (a != 98)
+					write(STDOUT_FILENO, ", ", 2);
+			}
+			b++;
+		}
+		a++;
+	}
 }
 
-int main(void)
-{
-    ft_print_comb2();
-    return 0;
-}
+// int main(void)
+// {
+//     ft_print_comb2();
+//     return 0;
+// }
