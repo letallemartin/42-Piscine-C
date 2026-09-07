@@ -9,7 +9,6 @@
 /*   Updated: 2026/08/19 15:00:00 by letalle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 int	ft_sqrt(int nb)
 {
 	int	i;
@@ -19,15 +18,15 @@ int	ft_sqrt(int nb)
 		return (0);
 	while (i < nb)
 	{
-		if (i*i == nb)
+		if (i * i == nb)
 			return (i);
 		i++;
 	}
 	return (0);
 }
 
-int	main(void)
-{
-	printf("%d\n", ft_sqrt(100));
-	return (0);
-}
+// int	main(void)
+// {
+// 	printf("%d\n", ft_sqrt(100));
+// 	return (0);
+// }
