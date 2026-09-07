@@ -16,7 +16,7 @@ int	ft_is_prime(int nb)
 	i = 2;
 	if (nb <= 1)
 		return (0);
-	while (i < nb - 1 && i * i <= nb)
+	while (i * i <= nb)
 	{
 		if (nb % i == 0)
 		{
@@ -29,6 +29,6 @@ int	ft_is_prime(int nb)
 
 // int	main(void)
 // {
-// 	printf("%d\n", ft_is_prime(36));
+// 	printf("%d\n", ft_is_prime(17));
 // 	return (0);
 // }
