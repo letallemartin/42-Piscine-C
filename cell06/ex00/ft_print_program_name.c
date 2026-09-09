@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-int	main(int argc, char *argv[])
-{
-	int i;
-	int j;
 
-	i = 1;
-	j = 0;
-	while (argv[i] != NULL)
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		while (argv[i][j] != '\0')
-		{
-			write(1,argv[i][j],1);
-			j++;
-		}
+		write(1, &str[i], 1);
 		i++;
 	}
+}
+
+int	main(int argc, char *argv[])
+{
+	ft_putstr(argv[0]);
 	return (0);
 }
