@@ -9,8 +9,8 @@
 /*   Updated: 2026/08/19 15:00:00 by letalle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
+
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -23,14 +23,15 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	main(int argc, char argv[])
+int	main(int argc, char *argv[])
 {
-	int j;
+	int	j;
 
 	j = 1;
 	while (argv[j] != NULL)
 	{
 		ft_putstr(argv[j]);
+		write(1, "\n", 2);
 		j++;
 	}
 	return (0);
