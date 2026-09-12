@@ -27,12 +27,25 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-void swap(char *a,char *b)
+void	swap(char *a,char *b)
 {
-    char temp = *a;
-    *a = *b;
-    *b = temp;
+	char	temp = *a;
+	*a = *b;
+	*b = temp;
 }
+
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+
 
 int	main(int argc, char *argv[])
 {
@@ -40,13 +53,12 @@ int	main(int argc, char *argv[])
 	int		j;
 	bool	trie;
 
-	i = 0;
-	j = 0;
+	j = 1;
+	i = 1;
 	trie = true;
 	while (argv[j] != NULL)
 	{
-		j++;
-		if (ft_strcmp(argv[i], argv[i + 1]) < 0)
+		if (argv[j + 1] != NULL && ft_strcmp(argv[j], argv[j + 1]) < 0)
 			trie = false;
 		while (trie == false)
 		{
@@ -54,5 +66,15 @@ int	main(int argc, char *argv[])
 				swap(argv[i], argv[i + 1]);
 			i++;
 		}
+		j++;
+		i = j;
 	}
+	j = 1;
+	while (argv[j] != NULL)
+	{
+		ft_putstr(argv[j]);
+		write(1, "\n", 2);
+		j++;
+	}
+
 }
