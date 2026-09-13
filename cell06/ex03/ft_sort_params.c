@@ -27,9 +27,11 @@ int	ft_strcmp(char *s1, char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-void	swap(char **a,char **b)
+void	swap(char **a, char **b)
 {
-	char	*temp = *a;
+	char	*temp;
+
+	temp = *a;
 	*a = *b;
 	*b = temp;
 }
@@ -49,6 +51,7 @@ void	ft_putstr(char *str)
 void	put_list(char **argv)
 {
 	int	i;
+
 	i = 1;
 	while (argv[i] != NULL)
 	{
@@ -57,7 +60,6 @@ void	put_list(char **argv)
 		i++;
 	}
 }
-
 
 int	main(int argc, char *argv[])
 {
