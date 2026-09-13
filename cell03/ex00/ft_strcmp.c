@@ -22,7 +22,7 @@ int	ft_strcmp(char *s1, char *s2)
 		}
 		i++;
 	}
-	return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
 // int main(void)
