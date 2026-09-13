@@ -24,12 +24,12 @@ int	ft_strcmp(char *s1, char *s2)
 		}
 		i++;
 	}
-	return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-void	swap(char *a,char *b)
+void	swap(char **a,char **b)
 {
-	char	temp = *a;
+	char	*temp = *a;
 	*a = *b;
 	*b = temp;
 }
@@ -50,31 +50,30 @@ void	ft_putstr(char *str)
 int	main(int argc, char *argv[])
 {
 	int		i;
-	int		j;
 	bool	trie;
 
-	j = 1;
 	i = 1;
-	trie = true;
-	while (argv[j] != NULL)
+	trie = false;
+	while (trie == false)
 	{
-		if (argv[j + 1] != NULL && ft_strcmp(argv[j], argv[j + 1]) < 0)
-			trie = false;
-		while (trie == false)
+		trie = true;
+		while (argv[i] != NULL)
 		{
-			if (argv[i + 1] != NULL && ft_strcmp(argv[i], argv[i + 1]) < 0)
-				swap(argv[i], argv[i + 1]);
+			if (argv[i + 1] != NULL && ft_strcmp(argv[i], argv[i + 1]) > 0)
+			{
+				swap(&argv[i], &argv[i + 1]);
+				trie = false;
+			}
 			i++;
 		}
-		j++;
-		i = j;
+		if (trie == false)
+			i = 1;
 	}
-	j = 1;
-	while (argv[j] != NULL)
+	i = 1;
+	while (argv[i] != NULL)
 	{
-		ft_putstr(argv[j]);
+		ft_putstr(argv[i]);
 		write(1, "\n", 2);
-		j++;
+		i++;
 	}
-
 }
