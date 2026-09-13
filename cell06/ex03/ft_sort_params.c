@@ -46,6 +46,18 @@ void	ft_putstr(char *str)
 	}
 }
 
+void	put_list(char **argv)
+{
+	int	i;
+	i = 1;
+	while (argv[i] != NULL)
+	{
+		ft_putstr(argv[i]);
+		write(1, "\n", 2);
+		i++;
+	}
+}
+
 
 int	main(int argc, char *argv[])
 {
@@ -69,11 +81,5 @@ int	main(int argc, char *argv[])
 		if (trie == false)
 			i = 1;
 	}
-	i = 1;
-	while (argv[i] != NULL)
-	{
-		ft_putstr(argv[i]);
-		write(1, "\n", 2);
-		i++;
-	}
+	put_list(argv);
 }
