@@ -23,7 +23,9 @@ int	ft_ultimate_range(int **range, int min, int max)
 		*range = NULL
 		return (0);
 	}
-	*range = malloc((max - min) * sizeof(int));
+	*range = malloc((size) * sizeof(int));
+	if (*range == NULL)
+		return (-1)
 	while (min < max)
 	{
 		tab[i] = min;
