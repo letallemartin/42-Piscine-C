@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include <stdlib.h>
 
-int	ft_range(int **range, int min, int max)
+int	ft_ultimate_range(int **range, int min, int max)
 {
 	int size;
 	int	i;
