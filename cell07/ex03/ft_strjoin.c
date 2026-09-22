@@ -70,7 +70,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	}
 	str2[g] = '\0';
 	int p = ft_strlen(str2);
-	write(1,str2,i);
+	write(1,str2,full_size);
 	return (str2);
 }
 
