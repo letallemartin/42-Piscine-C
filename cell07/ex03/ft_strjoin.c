@@ -61,7 +61,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		i;
 	char	*str2;
-	int g;
+	int		g;
 
 	g = 0;
 	i = 0;
@@ -80,7 +80,6 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	write(1,str2,calc_size(size, strs, sep));
 	return (str2);
 }
-
 
 int	main(void)
 {
