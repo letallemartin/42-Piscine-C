@@ -39,16 +39,27 @@ int	calc_size(int size, char **strs, char *sep)
 		if (i < size - 1)
 			full_size += ft_strlen(sep);
 		i++;
-		
 	}
 	full_size += 1;
 	return (full_size);
 }
 
+int	copie_char(int g, char *obs, char *dest)
+{
+	int	i;
+
+	i = 0;
+	while (obs[i] != '\0')
+	{
+		dest[g] = obs[i];
+		g++;
+		i++;
+	}
+	return (g);
+}
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		i;
-	int		j;
 	char	*str2;
 	int g;
 
@@ -57,25 +68,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	str2 = malloc(calc_size(size, strs, sep) * sizeof(char));
 	while (i < size)
 	{
-		j = 0;
-		while (strs[i][j] != '\0')
-		{
-			str2[g] = strs[i][j];
-			write(1,&strs[i][j],1);
-			g++;
-			j++;
-		}
+		g = copie_char(g, strs[i], str2);
 		i++;
 		if (i < size)
-		{
-			j = 0;
-			while(sep[j] != '\0')
-			{
-				str2[g] = sep[j];
-				write(1,&sep[j],1);
-				g++;
-				j++;
-			}
+		{	
+			g = copie_char(g, sep, str2);
 		}
 	}
 	str2[g] = '\0';
@@ -83,6 +80,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	write(1,str2,calc_size(size, strs, sep));
 	return (str2);
 }
+
 
 int	main(void)
 {
