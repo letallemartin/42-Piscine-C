@@ -36,9 +36,9 @@ int	calc_size(int size, char **strs, char *sep)
 	while (i < size)
 	{
 		full_size += ft_strlen(strs[i]);
-		i++;
 		if (i < size - 1)
 			full_size += ft_strlen(sep);
+		i++;
 		
 	}
 	full_size += 1;
@@ -49,13 +49,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		i;
 	int		j;
-	int		full_size;
 	char	*str2;
-	int g = 0;
+	int g;
+
+	g = 0;
 	i = 0;
-	full_size = calc_size(size, strs, sep);
-	
-	str2 = malloc(full_size * sizeof(char));
+	str2 = malloc(calc_size(size, strs, sep) * sizeof(char));
 	while (i < size)
 	{
 		j = 0;
@@ -67,17 +66,28 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			j++;
 		}
 		i++;
+		if (i < size)
+		{
+			j = 0;
+			while(sep[j] != '\0')
+			{
+				str2[g] = sep[j];
+				write(1,&sep[j],1);
+				g++;
+				j++;
+			}
+		}
 	}
 	str2[g] = '\0';
 	int p = ft_strlen(str2);
-	write(1,str2,full_size);
+	write(1,str2,calc_size(size, strs, sep));
 	return (str2);
 }
 
 int	main(void)
 {
-	char *strs[] = {"hel", "its"};
+	char *strs[] = {"hey", "its", "me"};
 	char *sep = ", ";
-	char *str2 = ft_strjoin(2, strs, sep);
+	char *str2 = ft_strjoin(3, strs, sep);
 	return (0);
 }
