@@ -31,8 +31,8 @@ int	calc_size(int size, char **strs, char *sep)
 
 	i = 0;
 	full_size = 0;
-	if (size <= 0)
-		return (size);
+	if (size == 0)
+		return (1);
 	while (i < size)
 	{
 		full_size += ft_strlen(strs[i]);
@@ -76,7 +76,6 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		}
 	}
 	str2[g] = '\0';
-	int p = ft_strlen(str2);
 	write(1,str2,calc_size(size, strs, sep));
 	return (str2);
 }
@@ -86,5 +85,6 @@ int	main(void)
 	char *strs[] = {"hey", "its", "me"};
 	char *sep = ", ";
 	char *str2 = ft_strjoin(3, strs, sep);
+	free(str2);
 	return (0);
 }
