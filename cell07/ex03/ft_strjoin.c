@@ -57,6 +57,7 @@ int	copie_char(int g, char *obs, char *dest)
 	}
 	return (g);
 }
+
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		i;
@@ -71,20 +72,20 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		g = copie_char(g, strs[i], str2);
 		i++;
 		if (i < size)
-		{	
+		{
 			g = copie_char(g, sep, str2);
 		}
 	}
 	str2[g] = '\0';
-	write(1,str2,calc_size(size, strs, sep));
 	return (str2);
 }
 
-int	main(void)
-{
-	char *strs[] = {"hey", "its", "me"};
-	char *sep = ", ";
-	char *str2 = ft_strjoin(3, strs, sep);
-	free(str2);
-	return (0);
-}
+// int	main(void)
+// {
+// 	char *strs[] = {"hey", "its", "me"};
+// 	char *sep = ", ";
+// 	char *str2 = ft_strjoin(3, strs, sep);
+// 	free(str2);
+// 	return (0);
+// }
+// write(1,str2,calc_size(size, strs, sep));
