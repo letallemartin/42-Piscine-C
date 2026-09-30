@@ -20,3 +20,4 @@ int	main(int argc, char **argv)
 		ft_putstr(ODD_MSG);
 	return (SUCCESS);
 }
+#test
