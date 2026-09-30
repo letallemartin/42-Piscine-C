@@ -2,6 +2,7 @@
 # define FT_H
 
 #include <unistd.h>
+#include <stdbool.h>
 
 #define TRUE 1
 #define FALSE 0
