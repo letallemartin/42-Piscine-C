@@ -3,7 +3,14 @@
 
 #include <unistd.h>
 
+#define TRUE 1
+#define FALSE 0
+#define EVEN
+#define EVEN_MSG "I have an even number of arguments"
+#define ODD_MSG "I have an odd number of arguments"
+#define SUCCESS 0
 void	ft_putstr(char c);
 t_bool	ft_is_even(int nbr);
+
 
 #endif
